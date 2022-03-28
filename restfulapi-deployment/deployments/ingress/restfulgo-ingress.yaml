@@ -1,0 +1,15 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: restfulgo
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`restful.example.com`)
+      kind: Rule
+      services:
+        - name: restfulgo-restfulapi
+          port: 11800
