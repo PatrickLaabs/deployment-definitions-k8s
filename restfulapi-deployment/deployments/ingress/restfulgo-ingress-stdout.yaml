@@ -1,0 +1,15 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: restfulgo-stdout
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`restful-stdout.example.com`)
+      kind: Rule
+      services:
+        - name: restfulapi-stdout-restfulapi
+          port: 11900

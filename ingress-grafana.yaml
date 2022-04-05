@@ -1,0 +1,15 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`grafana.example.com`)
+      kind: Rule
+      services:
+        - name: loki-stack-grafana
+          port: 80
