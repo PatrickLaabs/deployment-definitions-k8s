@@ -1,15 +1,16 @@
 ---
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: restfulgo
+  name: gotoweb
   namespace: default
 spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`rest.example.com`)
+    - match: Host(`gotoweb.example.com`)
       kind: Rule
       services:
-        - name: rest-restfulapi
-          port: 11800
+        - name: gotoweb-gotoweb
+          port: 10800
